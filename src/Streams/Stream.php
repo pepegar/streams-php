@@ -21,11 +21,11 @@ class Stream
     private $elements;
 
     /**
-     * __construct 
+     * __construct
      *
      * Constructor of the class.
-     * 
-     * @param array $elements 
+     *
+     * @param array $elements
      * @return void
      */
     public function __construct( array $elements )
@@ -35,16 +35,22 @@ class Stream
 
     /**
      * map funcnti
-     * 
-     * @param Callable $callback 
+     *
+     * @param callable $callback
      * @return void
      */
-    public function map( $callback ) {
+    public function map( callable $callback ) {
         $this->elements = array_map($callback, $this->elements);
         return $this;
     }
 
-    public function filter( $callback )
+    /**
+     * filter 
+     * 
+     * @param callable $callback 
+     * @return void
+     */
+    public function filter( callable $callback )
     {
         $this->elements = array_values(array_filter($this->elements, $callback));
         return $this;
@@ -52,7 +58,7 @@ class Stream
 
     /**
      * getElements
-     * 
+     *
      * @return array
      */
     public function getElements()
