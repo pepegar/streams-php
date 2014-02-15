@@ -1,0 +1,15 @@
+{
+    "name": "pepegar/streams-php",
+    "description": "A port of the Streams library for Java8. Let's make PHP cooler.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pepe García",
+            "email": "jl.garhdez@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    }
+}
