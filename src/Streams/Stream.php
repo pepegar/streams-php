@@ -39,15 +39,31 @@ class Stream
      * @param callable $callback
      * @return void
      */
-    public function map( callable $callback ) {
+    public function map( callable $callback )
+    {
         $this->elements = array_map($callback, $this->elements);
         return $this;
     }
 
     /**
-     * filter 
-     * 
-     * @param callable $callback 
+     * forEachElement
+     *
+     * This method is intended for containing the side effects, in case you need
+     * them. (I am not able to call it foreach because is a reserved keyword)
+     *
+     * @param callable $callback
+     * @return void
+     */
+    public function forEachElement( callable $callback )
+    {
+        array_map($callback, $this->elements);
+        return $this;
+    }
+
+    /**
+     * filter
+     *
+     * @param callable $callback
      * @return void
      */
     public function filter( callable $callback )
