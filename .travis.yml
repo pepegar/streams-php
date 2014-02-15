@@ -8,8 +8,7 @@ php:
   - hhvm
 
 before_script:
-    - wget http://getcomposer.org/composer.phar
-    - php composer.phar install
+    - COMPOSER_ROOT_VERSION=dev-master composer install
 
 script:
     - vendor/bin/phpunit test/StreamTest.php
