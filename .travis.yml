@@ -1,0 +1,15 @@
+nguage: php
+
+php:
+  - 5.3.3
+  - 5.3
+  - 5.4
+  - 5.5
+  - hhvm
+
+before_script:
+    - composer install
+
+script:
+    - vendor/bin/phpunit test/StreamTest.php
+    - echo "Running tests requiring tty"; phpunit --group tty
