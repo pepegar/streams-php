@@ -16,15 +16,4 @@ use Streams\Base;
  */
 class LongStream extends Base\NumericStream
 {
-    /**
-     * concat
-     *
-     * @param LongStream $a
-     * @param LongStream $b
-     * @return Streamer
-     */
-    public static function concat( LongStream $a, LongStream $b )
-    {
-        return parent::concat();
-    }
 }
