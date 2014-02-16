@@ -6,7 +6,7 @@ use Streams as S;
 
 class StreamTest extends PHPUnit_Framework_TestCase
 {
-    private $array = [1, 2, 3, 4];
+    private $array = array(1, 2, 3, 4);
 
     public function testConstructor()
     {
@@ -26,12 +26,12 @@ class StreamTest extends PHPUnit_Framework_TestCase
         };
 
         $stream->map($callback);
-        $this->assertEquals([2,4,6,8], $stream->getElements());
+        $this->assertEquals(array(2,4,6,8), $stream->getElements());
 
         $stream
             ->map($callback)
             ->map($callback);
-        $this->assertEquals([8, 16, 24, 32], $stream->getElements());
+        $this->assertEquals(array(8, 16, 24, 32), $stream->getElements());
     }
 
     public function testFilter()
@@ -43,7 +43,7 @@ class StreamTest extends PHPUnit_Framework_TestCase
         };
 
         $stream->filter($predicate);
-        $this->assertEquals([2, 4], $stream->getElements());
+        $this->assertEquals(array(2, 4), $stream->getElements());
 
         $stream = new S\Stream($this->array);
 
@@ -56,6 +56,6 @@ class StreamTest extends PHPUnit_Framework_TestCase
         };
 
         $stream->filter($predicateEven)->filter($predicateEqualsFour);
-        $this->assertEquals([4], $stream->getElements());
+        $this->assertEquals(array(4), $stream->getElements());
     }
 }
