@@ -1,6 +1,6 @@
 <?php
 
-require dirname(__FILE__) . "/../src/Streams/Stream.php";
+//require dirname(__FILE__) . "/../src/Streams/Stream.php";
 
 use Streams as S;
 
@@ -111,7 +111,7 @@ class StreamTest extends PHPUnit_Framework_TestCase
         $streamB = new S\Stream($this->array);
         $newStream = S\Stream::concat($streamA, $streamB);
 
-        $this->assertInstanceOf('Streams\Stream', $newStream);
+        $this->assertInstanceOf('Streams\Base\BaseStream', $newStream);
 
         $this->assertEquals($newStream->getElements(), $streamA->getElements() + $streamB->getElements());
     }

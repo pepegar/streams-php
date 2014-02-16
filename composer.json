@@ -8,6 +8,11 @@
             "email": "jl.garhdez@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
     "minimum-stability": "dev",
     "require": {
         "phpunit/phpunit": "3.7.*"

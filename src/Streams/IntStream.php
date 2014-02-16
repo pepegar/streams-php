@@ -5,7 +5,7 @@ namespace Streams;
 use Streams\Base;
 
 /**
- * Stream
+ * IntStream
  *
  * @uses BaseStream
  * @package pepegar/streams-php
@@ -14,6 +14,6 @@ use Streams\Base;
  * @author Pepe García <jl.garhdez@gmail.com>
  * @license MIT
  */
-class Stream extends Base\BaseStream
+class IntStream extends Base\BaseStream
 {
 }
