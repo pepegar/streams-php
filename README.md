@@ -1,5 +1,6 @@
 Streams
 =======
+[![Build Status](https://travis-ci.org/pepegar/streams-php.png?branch=master)](https://travis-ci.org/pepegar/streams-php)
 
 Streams is a port of the Streams library for PHP. It makes working with
 collections super pleasant.
