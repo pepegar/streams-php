@@ -5,25 +5,25 @@ namespace Streams;
 use Streams\Base;
 
 /**
- * IntStream
- *
+ * LongStream 
+ * 
  * @uses Streams\Base\NumericStream
  * @package pepegar/streams-php
  * @version 0.1
  * @copyright Copyright (C) 2014 Pepe García
- * @author Pepe García <jl.garhdez@gmail.com>
+ * @author Pepe García <jl.garhdez@gmail.com> 
  * @license MIT
  */
-class IntStream extends Base\NumericStream
+class LongStream extends Base\NumericStream
 {
     /**
      * concat
      *
-     * @param IntStream $a
-     * @param IntStream $b
+     * @param LongStream $a
+     * @param LongStream $b
      * @return Streamer
      */
-    public static function concat( IntStream $a, IntStream $b )
+    public static function concat( LongStream $a, LongStream $b )
     {
         return parent::concat();
     }

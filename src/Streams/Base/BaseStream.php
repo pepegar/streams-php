@@ -6,13 +6,13 @@ use Streams\Interfaces;
 use Streams as S;
 
 /**
- * BaseStream 
- * 
+ * BaseStream
+ *
  * @uses Streamer
  * @package pepegar/streams-php
  * @version 0.1
  * @copyright Copyright (C) 2014 Pepe García
- * @author Pepe García <jl.garhdez@gmail.com> 
+ * @author Pepe García <jl.garhdez@gmail.com>
  * @license MIT
  */
 abstract class BaseStream implements Interfaces\Streamer
@@ -147,6 +147,19 @@ abstract class BaseStream implements Interfaces\Streamer
     }
 
     /**
+     * emptyStream
+     *
+     * returns an empty Stream
+     *
+     * @return Streamer
+     */
+    public function emptyStream()
+    {
+        $this->setElements([]);
+        return $this;
+    }
+
+    /**
      * getElements
      *
      * @return array
@@ -154,5 +167,16 @@ abstract class BaseStream implements Interfaces\Streamer
     public function getElements()
     {
         return $this->elements;
+    }
+
+    /**
+     * setElements
+     *
+     * @param array $elements
+     * @return void
+     */
+    public function setElements( array $elements )
+    {
+        $this->elements = $elements;
     }
 }

@@ -7,7 +7,7 @@ use Streams\Base;
 /**
  * Stream
  *
- * @uses BaseStream
+ * @uses Streams\Base\BaseStream
  * @package pepegar/streams-php
  * @version 0.1
  * @copyright Copyright (C) 2014 Pepe García
