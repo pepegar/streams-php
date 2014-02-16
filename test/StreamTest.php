@@ -93,4 +93,15 @@ class StreamTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(true, $result);
     }
+
+    public function testAnyMatch()
+    {
+        $stream = new S\Stream($this->array);
+
+        $result = $stream->anyMatch(function($item) {
+            return !($item % 3);
+        });
+
+        $this->assertTrue($result);
+    }
 }

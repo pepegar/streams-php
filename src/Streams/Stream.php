@@ -73,18 +73,32 @@ class Stream
     }
 
     /**
-     * allMatch 
-     * 
-     * returns wether all the elements in the stream match the 
+     * allMatch
+     *
+     * returns wether all the elements in the stream match the
      * given predicate
-     * 
-     * @param callable $callback 
+     *
+     * @param callable $callback
      * @return void
      */
     public function allMatch( callable $callback )
     {
         $prevLength = count($this->getElements());
         return count(array_filter($this->getElements(), $callback)) == $prevLength;
+    }
+
+    /**
+     * anyMatch
+     *
+     * returns wether any of the elements in the stream match the
+     * given predicate
+     *
+     * @param callable $callback
+     * @return void
+     */
+    public function anyMatch( callable $callback )
+    {
+        return 0 < (count(array_filter($this->elements, $callback)));
     }
 
     /**
