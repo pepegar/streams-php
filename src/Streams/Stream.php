@@ -75,8 +75,8 @@ class Stream
     /**
      * allMatch
      *
-     * returns wether all the elements in the stream match the
-     * given predicate
+     * returns wether all the elements in the stream match the given
+     * predicate
      *
      * @param callable $callback
      * @return void
@@ -90,8 +90,8 @@ class Stream
     /**
      * anyMatch
      *
-     * returns wether any of the elements in the stream match the
-     * given predicate
+     * returns wether any of the elements in the stream match the given
+     * predicate
      *
      * @param callable $callback
      * @return void
@@ -99,6 +99,22 @@ class Stream
     public function anyMatch( callable $callback )
     {
         return 0 < (count(array_filter($this->elements, $callback)));
+    }
+
+    /**
+     * concat
+     *
+     * Creates a lazily concatenated stream whose elements are all the elements
+     * of the first stream followed by all the elements of the second stream.
+     *
+     * @param Stream $a
+     * @param Stream $b
+     * @return Stream
+     */
+    public static function concat( Stream $a, Stream $b )
+    {
+        $items = $a->getElements() + $b->getElements();
+        return new Stream($items);
     }
 
     /**

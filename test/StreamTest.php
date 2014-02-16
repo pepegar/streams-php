@@ -104,4 +104,15 @@ class StreamTest extends PHPUnit_Framework_TestCase
 
         $this->assertTrue($result);
     }
+
+    public function testConcatStreams()
+    {
+        $streamA = new S\Stream($this->array);
+        $streamB = new S\Stream($this->array);
+        $newStream = S\Stream::concat($streamA, $streamB);
+
+        $this->assertInstanceOf('Streams\Stream', $newStream);
+
+        $this->assertEquals($newStream->getElements(), $streamA->getElements() + $streamB->getElements());
+    }
 }

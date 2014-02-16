@@ -38,3 +38,13 @@ results.
 takes a function as argument and applies it to each element in the collection.
 It returns a new collection containing all elements where the callback returned
 true.
+
+###allMatch(callable $predicate)
+returns wether all the elements in the stream match the given predicate
+
+###anyMatch(callable $predicate)
+returns wether any the elements in the stream match the given predicate
+
+###concat(Stream $a, Stream $b)
+Creates a lazily concatenated stream whose elements are all the elements of the
+first stream followed by all the elements of the second stream.
