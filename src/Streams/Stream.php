@@ -73,6 +73,18 @@ class Stream
     }
 
     /**
+     * count
+     *
+     * returns the count of elements in the stream
+     *
+     * @return integer
+     */
+    public function count()
+    {
+        return count($this->getElements());
+    }
+
+    /**
      * allMatch
      *
      * returns wether all the elements in the stream match the given

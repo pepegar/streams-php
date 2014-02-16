@@ -115,4 +115,11 @@ class StreamTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($newStream->getElements(), $streamA->getElements() + $streamB->getElements());
     }
+
+    public function testCount(  )
+    {
+        $stream = new S\Stream($this->array);
+
+        $this->assertEquals(4, $stream->count());
+    }
 }
