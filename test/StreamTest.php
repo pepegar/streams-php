@@ -1,7 +1,5 @@
 <?php
 
-//require dirname(__FILE__) . "/../src/Streams/Stream.php";
-
 use Streams as S;
 
 /**

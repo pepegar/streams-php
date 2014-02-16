@@ -6,6 +6,7 @@
 	<testsuites>
 		<testsuite name="Stream tests">
 			<file>test/StreamTest.php</file>
+			<file>test/IntStreamTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>

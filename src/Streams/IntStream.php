@@ -16,4 +16,13 @@ use Streams\Base;
  */
 class IntStream extends Base\BaseStream
 {
+    public function max()
+    {
+        return max($this->getElements());
+    }
+
+    public function min()
+    {
+        return min($this->getElements());
+    }
 }
