@@ -85,6 +85,19 @@ class Stream
     }
 
     /**
+     * distinct
+     *
+     * returns a new stream consisting of the distinct elements of the stream
+     *
+     * @return void
+     */
+    public function distinct()
+    {
+        $this->elements = array_unique($this->getElements());
+        return $this;
+    }
+
+    /**
      * allMatch
      *
      * returns wether all the elements in the stream match the given

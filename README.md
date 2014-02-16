@@ -48,3 +48,9 @@ returns wether any the elements in the stream match the given predicate
 ###concat(Stream $a, Stream $b)
 Creates a lazily concatenated stream whose elements are all the elements of the
 first stream followed by all the elements of the second stream.
+
+###count()
+returns the count of elements in the stream
+
+###distinct()
+returns a new stream consisting of the distinct elements of the stream
