@@ -8,8 +8,8 @@ php:
   - hhvm
 
 before_script:
+    - composer --version
     - COMPOSER_ROOT_VERSION=dev-master composer install
 
 script:
     - vendor/bin/phpunit test/StreamTest.php
-    - echo "Running tests requiring tty"; phpunit --group tty
