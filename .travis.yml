@@ -9,4 +9,4 @@ before_script:
     - COMPOSER_ROOT_VERSION=dev-master composer install
 
 script:
-    - vendor/bin/phpunit test/StreamTest.php
+    - vendor/bin/phpunit
