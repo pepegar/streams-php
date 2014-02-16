@@ -131,6 +131,30 @@ abstract class BaseStream implements Interfaces\Streamer
     }
 
     /**
+     * mapToFloat
+     *
+     * @param callable $callback
+     * @return LongStream
+     */
+    public function mapToFloat( callable $callback )
+    {
+        $this->map($callback);
+        return new S\FloatStream($this->getElements());
+    }
+
+    /**
+     * mapToInt
+     *
+     * @param callable $callback
+     * @return void
+     */
+    public function mapToInt( callable $callback )
+    {
+        $this->map($callback);
+        return new S\IntStream($this->getElements());
+    }
+
+    /**
      * concat
      *
      * Creates a lazily concatenated stream whose elements are all the elements

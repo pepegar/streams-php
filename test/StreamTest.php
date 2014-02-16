@@ -135,4 +135,22 @@ class StreamTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($newStream->getElements(), [4,5,6,7]);
     }
+
+    public function testMapToFloat()
+    {
+        $stream = new S\Stream([1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4]);
+        $newStream = $stream->mapToFloat(function($item) {
+            return $item;
+        });
+        $this->assertInstanceOf('Streams\FloatStream', $newStream);
+    }
+
+    public function testMapToInt()
+    {
+        $stream = new S\Stream([1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4]);
+        $newStream = $stream->mapToInt(function($item) {
+            return $item;
+        });
+        $this->assertInstanceOf('Streams\IntStream', $newStream);
+    }
 }
