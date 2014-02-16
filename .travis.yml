@@ -1,4 +1,4 @@
-nguage: php
+language: php
 
 php:
   - 5.3.3
@@ -12,4 +12,3 @@ before_script:
 
 script:
     - vendor/bin/phpunit test/StreamTest.php
-    - echo "Running tests requiring tty"; phpunit --group tty
