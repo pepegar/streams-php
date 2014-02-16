@@ -14,15 +14,6 @@ use Streams\Base;
  * @author Pepe García <jl.garhdez@gmail.com>
  * @license MIT
  */
-class IntStream extends Base\BaseStream
+class IntStream extends Base\NumericStream
 {
-    public function max()
-    {
-        return max($this->getElements());
-    }
-
-    public function min()
-    {
-        return min($this->getElements());
-    }
 }

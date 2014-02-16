@@ -27,4 +27,13 @@ class IntStreamTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(1, $min);
     }
+
+    public function testOf()
+    {
+        $intStream = new S\IntStream($this->array);
+        $newStream = $intStream->of(3,4,5);
+
+        $this->assertInstanceOf('Streams\IntStream', $newStream);
+        $this->assertEquals([3,4,5], $newStream->getElements());
+    }
 }
