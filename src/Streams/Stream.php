@@ -5,7 +5,7 @@ namespace Streams;
 /**
  * Stream
  *
- * @package Streams
+ * @package pepegar/streams-php
  * @version 0.1
  * @copyright Copyright (C) 2014 Pepe García
  * @author Pepe García <jl.garhdez@gmail.com>
@@ -70,6 +70,21 @@ class Stream
     {
         $this->elements = array_values(array_filter($this->elements, $callback));
         return $this;
+    }
+
+    /**
+     * allMatch 
+     * 
+     * returns wether all the elements in the stream match the 
+     * given predicate
+     * 
+     * @param callable $callback 
+     * @return void
+     */
+    public function allMatch( callable $callback )
+    {
+        $prevLength = count($this->getElements());
+        return count(array_filter($this->getElements(), $callback)) == $prevLength;
     }
 
     /**
