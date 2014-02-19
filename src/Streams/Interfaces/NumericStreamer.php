@@ -6,5 +6,5 @@ interface NumericStreamer extends Streamer
 {
     public function max();
     public function min();
-    public function of();
+    public static function of();
 }

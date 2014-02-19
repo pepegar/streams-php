@@ -16,12 +16,10 @@ class NumericStream extends BaseStream implements Interfaces\NumericStreamer
         return min($this->getElements());
     }
 
-    public function of()
+    public static function of()
     {
         $args = func_get_args();
-        $this->filter(function($item) use($args) {
-            return in_array($item, $args);
-        });
-        return $this;
+        $class = get_called_class();
+        return new $class(array_values($args));
     }
 }
