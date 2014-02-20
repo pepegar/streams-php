@@ -153,4 +153,45 @@ class StreamTest extends PHPUnit_Framework_TestCase
         });
         $this->assertInstanceOf('Streams\IntStream', $newStream);
     }
+
+    public function testReduce()
+    {
+        $stream = new S\Stream([1,2,3,4]);
+        $sum = $stream->reduce(0, function($item, $next) {
+            return $item + $next;
+        });
+        $this->assertEquals(10, $sum);
+
+        $mult = $stream->reduce(1, function($item, $next) {
+            return $item * $next;
+        });
+        $this->assertEquals(24, $mult);
+    }
+
+    public function testLetsDoCoolThingsSuchAsMapReduce(  )
+    {
+        $arrayOfPhrases = array(
+            'first second third',
+            'first second',
+            'fourth second fourth',
+            'first second second',
+            'third second third',
+        );
+
+        $phrasesStream = new S\Stream($arrayOfPhrases);
+
+        $computedArray = $phrasesStream->map(function( $line ) {
+            return array_count_values(explode(' ', $line));
+        })->reduce([], function( $first, $next ) {
+            foreach ( $next as $word => $count ) {
+                $first[$word] += $count;
+            }
+            return $first;
+        });
+
+        $this->assertEquals(3, $computedArray['first']);
+        $this->assertEquals(6, $computedArray['second']);
+        $this->assertEquals(3, $computedArray['third']);
+        $this->assertEquals(2, $computedArray['fourth']);
+    }
 }

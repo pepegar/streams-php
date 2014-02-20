@@ -203,4 +203,19 @@ abstract class BaseStream implements Interfaces\Streamer
     {
         $this->elements = $elements;
     }
+
+    /**
+     * reduce
+     *
+     * This operation performs a reduction on the elements of the stream. The
+     * first param is used as the initial element for the 
+     *
+     * @param mixed $initial
+     * @param callable $callback
+     * @return mixed
+     */
+    public function reduce( $initial, callable $callback )
+    {
+        return array_reduce($this->elements, $callback, $initial);
+    }
 }
