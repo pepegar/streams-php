@@ -123,22 +123,22 @@ class StreamTest extends PHPUnit_Framework_TestCase
 
     public function testDistinct()
     {
-        $stream = new S\Stream([1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4]);
+        $stream = new S\Stream(array(1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4));
         $newStream = $stream->distinct();
         $this->assertInstanceOf('Streams\Stream', $newStream);
 
-        $this->assertEquals($newStream->getElements(), [1,2,3,4]);
+        $this->assertEquals($newStream->getElements(), array(1,2,3,4));
 
-        $stream = new S\Stream([4,5,6,7,4,5,6,7]);
+        $stream = new S\Stream(array(4,5,6,7,4,5,6,7));
         $newStream = $stream->distinct();
         $this->assertInstanceOf('Streams\Stream', $newStream);
 
-        $this->assertEquals($newStream->getElements(), [4,5,6,7]);
+        $this->assertEquals($newStream->getElements(), array(4,5,6,7));
     }
 
     public function testMapToFloat()
     {
-        $stream = new S\Stream([1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4]);
+        $stream = new S\Stream(array(1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4));
         $newStream = $stream->mapToFloat(function($item) {
             return $item;
         });
@@ -147,7 +147,7 @@ class StreamTest extends PHPUnit_Framework_TestCase
 
     public function testMapToInt()
     {
-        $stream = new S\Stream([1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4]);
+        $stream = new S\Stream(array(1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4));
         $newStream = $stream->mapToInt(function($item) {
             return $item;
         });
@@ -156,7 +156,7 @@ class StreamTest extends PHPUnit_Framework_TestCase
 
     public function testReduce()
     {
-        $stream = new S\Stream([1,2,3,4]);
+        $stream = new S\Stream(array(1,2,3,4));
         $sum = $stream->reduce(0, function($item, $next) {
             return $item + $next;
         });
