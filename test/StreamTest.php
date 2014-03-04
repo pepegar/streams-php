@@ -180,14 +180,16 @@ class StreamTest extends PHPUnit_Framework_TestCase
 
         $phrasesStream = new S\Stream($arrayOfPhrases);
 
-        $computedArray = $phrasesStream->map(function( $line ) {
-            return array_count_values(explode(' ', $line));
-        })->reduce([], function( $first, $next ) {
-            foreach ( $next as $word => $count ) {
-                $first[$word] += $count;
-            }
-            return $first;
-        });
+        $computedArray = $phrasesStream
+            ->map(function( $line ) {
+                return array_count_values(explode(' ', $line));
+            })
+            ->reduce(array(), function( $first, $next ) {
+                foreach ( $next as $word => $count ) {
+                    $first[$word] += $count;
+                }
+                return $first;
+            });
 
         $this->assertEquals(3, $computedArray['first']);
         $this->assertEquals(6, $computedArray['second']);

@@ -179,7 +179,7 @@ abstract class BaseStream implements Interfaces\Streamer
      */
     public function emptyStream()
     {
-        $this->setElements([]);
+        $this->setElements(array());
         return $this;
     }
 
