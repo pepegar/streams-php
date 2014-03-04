@@ -4,7 +4,7 @@ use Streams as S;
 
 class IntStreamTest extends PHPUnit_Framework_TestCase
 {
-    private $array = [1,2,3,4,5,6,7,8,9,10];
+    private $array = array(1,2,3,4,5,6,7,8,9,10);
 
     public function testConstruct()
     {
