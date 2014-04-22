@@ -38,12 +38,12 @@ abstract class BaseStream implements Interfaces\Streamer
     }
 
     /**
-     * map funcnti
+     * map a function to each element in a collection
      *
-     * @param callable $callback
+     * @param $callback
      * @return void
      */
-    public function map( callable $callback )
+    public function map( $callback )
     {
         $this->elements = array_map($callback, $this->elements);
         return $this;
@@ -55,10 +55,10 @@ abstract class BaseStream implements Interfaces\Streamer
      * This method is intended for containing the side effects, in case you need
      * them. (I am not able to call it foreach because is a reserved keyword)
      *
-     * @param callable $callback
+     * @param $callback
      * @return void
      */
-    public function forEachElement( callable $callback )
+    public function forEachElement( $callback )
     {
         array_map($callback, $this->elements);
         return $this;
@@ -67,10 +67,10 @@ abstract class BaseStream implements Interfaces\Streamer
     /**
      * filter
      *
-     * @param callable $callback
+     * @param $callback
      * @return void
      */
-    public function filter( callable $callback )
+    public function filter( $callback )
     {
         $this->elements = array_values(array_filter($this->elements, $callback));
         return $this;
@@ -107,10 +107,10 @@ abstract class BaseStream implements Interfaces\Streamer
      * returns wether all the elements in the stream match the given
      * predicate
      *
-     * @param callable $callback
+     * @param $callback
      * @return void
      */
-    public function allMatch( callable $callback )
+    public function allMatch( $callback )
     {
         $prevLength = count($this->getElements());
         return count(array_filter($this->getElements(), $callback)) == $prevLength;
@@ -122,10 +122,10 @@ abstract class BaseStream implements Interfaces\Streamer
      * returns wether any of the elements in the stream match the given
      * predicate
      *
-     * @param callable $callback
+     * @param $callback
      * @return void
      */
-    public function anyMatch( callable $callback )
+    public function anyMatch( $callback )
     {
         return 0 < (count(array_filter($this->elements, $callback)));
     }
@@ -133,10 +133,10 @@ abstract class BaseStream implements Interfaces\Streamer
     /**
      * mapToFloat
      *
-     * @param callable $callback
+     * @param $callback
      * @return LongStream
      */
-    public function mapToFloat( callable $callback )
+    public function mapToFloat( $callback )
     {
         $this->map($callback);
         return new S\FloatStream($this->getElements());
@@ -145,10 +145,10 @@ abstract class BaseStream implements Interfaces\Streamer
     /**
      * mapToInt
      *
-     * @param callable $callback
+     * @param $callback
      * @return void
      */
-    public function mapToInt( callable $callback )
+    public function mapToInt( $callback )
     {
         $this->map($callback);
         return new S\IntStream($this->getElements());
@@ -211,10 +211,10 @@ abstract class BaseStream implements Interfaces\Streamer
      * first param is used as the initial element for the 
      *
      * @param mixed $initial
-     * @param callable $callback
+     * @param $callback
      * @return mixed
      */
-    public function reduce( $initial, callable $callback )
+    public function reduce( $initial, $callback )
     {
         return array_reduce($this->elements, $callback, $initial);
     }

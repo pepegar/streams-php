@@ -168,7 +168,7 @@ class StreamTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(24, $mult);
     }
 
-    public function testLetsDoCoolThingsSuchAsMapReduce(  )
+    public function testLetsDoCoolThingsSuchAsMapReduce()
     {
         $arrayOfPhrases = array(
             'first second third',
@@ -184,11 +184,15 @@ class StreamTest extends PHPUnit_Framework_TestCase
             ->map(function( $line ) {
                 return array_count_values(explode(' ', $line));
             })
-            ->reduce(array(), function( $first, $next ) {
+            ->reduce(array(), function( $acc, $next ) {
                 foreach ( $next as $word => $count ) {
-                    $first[$word] += $count;
+                    if ( isset($acc[$word]) )
+                        $acc[$word] += $count;
+                    else
+                        $acc[$word] = $count;
                 }
-                return $first;
+
+                return $acc;
             });
 
         $this->assertEquals(3, $computedArray['first']);
