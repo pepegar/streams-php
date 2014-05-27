@@ -1,10 +1,8 @@
 Streams
 =======
 [![Build Status](https://travis-ci.org/pepegar/streams-php.png?branch=master)](https://travis-ci.org/pepegar/streams-php)
-[![Latest Stable Version](https://poser.pugx.org/pepegar/streams-php/v/stable.png)](https://packagist.org/packages/pepegar/streams-php)
-[![Total Downloads](https://poser.pugx.org/pepegar/streams-php/downloads.png)](https://packagist.org/packages/pepegar/streams-php)
-[![Latest Unstable Version](https://poser.pugx.org/pepegar/streams-php/v/unstable.png)](https://packagist.org/packages/pepegar/streams-php)
 [![License](https://poser.pugx.org/pepegar/streams-php/license.png)](https://packagist.org/packages/pepegar/streams-php)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/b4707079-cd47-4d91-b0c2-92e8b92b5f21/big.png)](https://insight.sensiolabs.com/projects/b4707079-cd47-4d91-b0c2-92e8b92b5f21)
 
 Streams is a port of the Streams library for PHP. It makes working with
 collections super pleasant.
