@@ -32,5 +32,6 @@ class IntStreamTest extends PHPUnit_Framework_TestCase
     {
         $stream = S\IntStream::of(1,2,3,4,5);
         $this->assertInstanceOf('Streams\IntStream', $stream);
+        $this->assertEquals($stream->getElements(), array(1,2,3,4,5));
     }
 }
