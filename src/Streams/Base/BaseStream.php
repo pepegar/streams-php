@@ -45,8 +45,8 @@ abstract class BaseStream implements Interfaces\Streamer
      */
     public function map( $callback )
     {
-        $this->elements = array_map($callback, $this->elements);
-        return $this;
+        $elements = array_map($callback, $this->elements);
+        return $this->newStream($elements);
     }
 
     /**
@@ -72,8 +72,8 @@ abstract class BaseStream implements Interfaces\Streamer
      */
     public function filter( $callback )
     {
-        $this->elements = array_values(array_filter($this->elements, $callback));
-        return $this;
+        $elements = array_values(array_filter($this->elements, $callback));
+        return $this->newStream($elements);
     }
 
     /**
@@ -97,8 +97,8 @@ abstract class BaseStream implements Interfaces\Streamer
      */
     public function distinct()
     {
-        $this->elements = array_unique($this->getElements());
-        return $this;
+        $elements = array_unique($this->getElements());
+        return $this->newStream($elements);
     }
 
     /**
@@ -179,8 +179,7 @@ abstract class BaseStream implements Interfaces\Streamer
      */
     public function emptyStream()
     {
-        $this->setElements(array());
-        return $this;
+        return $this->newStream(array());
     }
 
     /**
@@ -217,5 +216,11 @@ abstract class BaseStream implements Interfaces\Streamer
     public function reduce( $initial, $callback )
     {
         return array_reduce($this->elements, $callback, $initial);
+    }
+
+    public function newStream( array $elements )
+    {
+        $class = get_called_class();
+        return new $class($elements);
     }
 }
